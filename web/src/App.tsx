@@ -13,7 +13,10 @@ interface ForecastPoint {
   renewable_generation_mw: number;
 }
 
-const API_BASE_URL = 'http://localhost:8000/api/v1/forecast';
+const ENV_URL = import.meta.env.VITE_API_BASE_URL;
+const API_BASE_URL = ENV_URL 
+  ? (ENV_URL.startsWith('http') ? ENV_URL : `https://${ENV_URL}/api/v1/forecast`) 
+  : 'http://localhost:8000/api/v1/forecast';
 
 function App() {
   const [data, setData] = useState<ForecastPoint[]>([]);
