@@ -9,17 +9,21 @@ from src.api.schemas import ForecastRequest, ForecastPoint, ForecastResponse, Si
 
 router = APIRouter()
 
-# Dependency for Redis client with graceful fallback
-# Probe once at module load instead of per-request to avoid blocking the API
+import os
+
 _redis_client = None
 try:
-    _r = redis.Redis(
-        host='localhost', port=6379, db=0,
-        decode_responses=True,
-        socket_timeout=0.3,
-        socket_connect_timeout=0.3,
-        retry_on_timeout=False,
-    )
+    redis_url = os.getenv('REDIS_URL')
+    if redis_url:
+        _r = redis.Redis.from_url(redis_url, decode_responses=True, socket_timeout=3.0)
+    else:
+        _r = redis.Redis(
+            host='localhost', port=6379, db=0,
+            decode_responses=True,
+            socket_timeout=0.3,
+            socket_connect_timeout=0.3,
+            retry_on_timeout=False,
+        )
     _r.ping()
     _redis_client = _r
 except Exception:
