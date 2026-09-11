@@ -10,13 +10,23 @@ from src.api.schemas import ForecastRequest, ForecastPoint, ForecastResponse, Si
 router = APIRouter()
 
 # Dependency for Redis client with graceful fallback
+# Probe once at module load instead of per-request to avoid blocking the API
+_redis_client = None
+try:
+    _r = redis.Redis(
+        host='localhost', port=6379, db=0,
+        decode_responses=True,
+        socket_timeout=0.3,
+        socket_connect_timeout=0.3,
+        retry_on_timeout=False,
+    )
+    _r.ping()
+    _redis_client = _r
+except Exception:
+    _redis_client = None
+
 def get_redis():
-    try:
-        r = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True, socket_timeout=0.5)
-        r.ping()
-        return r
-    except (redis.ConnectionError, redis.TimeoutError):
-        return None
+    return _redis_client
 
 def mock_inference(bidding_zone: str, horizon: int, wind_delta: float = 0.0, solar_delta: float = 0.0) -> ForecastResponse:
     # Generate synthetic mock response
