@@ -1,0 +1,30 @@
+[project]
+name = "ecogrid-cast"
+version = "0.1.0"
+description = "EcoGrid-Cast: Time-series forecasting for energy grid"
+authors = [
+    { name = "Developer" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "polars",
+    "lightgbm",
+    "pytorch-forecasting",
+    "mapie",
+    "fastapi",
+    "uvicorn",
+    "redis",
+    "sqlalchemy",
+    "psycopg2-binary",
+    "requests",
+    "openmeteo-requests",
+    "requests-cache",
+    "retry-requests",
+    "evidently",
+    "mlflow"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest"
+]

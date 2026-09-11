@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: ecogrid-cast
+Version: 0.1.0
+Summary: EcoGrid-Cast: Time-series forecasting for energy grid
+Author: Developer
+Requires-Python: >=3.10
+Requires-Dist: polars
+Requires-Dist: lightgbm
+Requires-Dist: pytorch-forecasting
+Requires-Dist: mapie
+Requires-Dist: fastapi
+Requires-Dist: uvicorn
+Requires-Dist: redis
+Requires-Dist: sqlalchemy
+Requires-Dist: psycopg2-binary
+Requires-Dist: requests
+Requires-Dist: openmeteo-requests
+Requires-Dist: requests-cache
+Requires-Dist: retry-requests
+Requires-Dist: evidently
+Requires-Dist: mlflow
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
