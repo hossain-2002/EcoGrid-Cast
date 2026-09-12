@@ -19,5 +19,6 @@ Requires-Dist: requests-cache
 Requires-Dist: retry-requests
 Requires-Dist: evidently
 Requires-Dist: mlflow
+Requires-Dist: streamlit
 Provides-Extra: dev
 Requires-Dist: pytest; extra == "dev"

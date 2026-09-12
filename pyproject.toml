@@ -11,17 +11,13 @@ dependencies = [
     "lightgbm",
     "pytorch-forecasting",
     "mapie",
-    "fastapi",
-    "uvicorn",
-    "redis",
-    "sqlalchemy",
-    "psycopg2-binary",
     "requests",
     "openmeteo-requests",
     "requests-cache",
     "retry-requests",
     "evidently",
-    "mlflow"
+    "mlflow",
+    "streamlit"
 ]
 
 [project.optional-dependencies]
