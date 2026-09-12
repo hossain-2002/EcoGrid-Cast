@@ -7,17 +7,9 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
-    "polars",
-    "lightgbm",
-    "pytorch-forecasting",
-    "mapie",
-    "requests",
-    "openmeteo-requests",
-    "requests-cache",
-    "retry-requests",
-    "evidently",
-    "mlflow",
-    "streamlit"
+    "streamlit",
+    "plotly",
+    "numpy"
 ]
 
 [project.optional-dependencies]
