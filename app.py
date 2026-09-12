@@ -95,6 +95,18 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ----------------- UI: HERO SECTION -----------------
+st.markdown("""
+<div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid #232328;">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: #d48e4d; font-weight: 700; letter-spacing: 0.05em;">⚡</span>
+    <span style="font-family: 'Inter', sans-serif; font-size: 1.25rem; font-weight: 900; color: #ffffff; letter-spacing: -0.03em;">EcoGrid<span style="color: #d48e4d;">-Cast</span></span>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #64748b; background: #17171a; border: 1px solid #232328; padding: 0.15rem 0.5rem; border-radius: 2px; margin-left: 0.25rem;">v0.1.0</span>
+    <span style="flex: 1;"></span>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: #10b981; display: flex; align-items: center; gap: 0.4rem;">
+        <span style="display:inline-block; width: 6px; height: 6px; background: #10b981; border-radius: 50;"></span>
+        GRID BUS ONLINE
+    </span>
+</div>
+""", unsafe_allow_html=True)
 st.markdown('<div class="system-identifier">■ SYSTEM IDENTIFIER // DE-LU GRID</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-title">PROBABILISTIC<br>DISPATCH</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-subtitle">Conformal day-ahead wholesale electricity price calibration and renewable generation forecasting. Precise, calibrated, and rigorously bounded under extreme market volatility.</div>', unsafe_allow_html=True)
@@ -255,4 +267,4 @@ with main_col:
 
     fig.update_layout(**layout)
     
-    st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
+    st.plotly_chart(fig, width='stretch', config={'displayModeBar': False})
